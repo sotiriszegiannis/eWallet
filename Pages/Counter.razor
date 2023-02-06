@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+@    using Domain;
+    using Domain.Tables;
 
 <PageTitle>Counter</PageTitle>
 
@@ -10,7 +12,7 @@
 
 @code {
     private int currentCount = 0;
-
+    public Money Expense = new Money();
     private void IncrementCount()
     {
         currentCount++;
