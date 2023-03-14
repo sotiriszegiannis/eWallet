@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Repository;
-using eWallet.Repository;
 using Domain;
 using MudBlazor.Services;
 
@@ -21,7 +20,7 @@ namespace eWallet
             {
                 options.UseInMemoryDatabase("eWallet");
             });
-            builder.Services.AddScoped<Repository.MoneyRepository>();
+            builder.Services.AddScoped<MoneyRepository>();
             await builder.Build().RunAsync();
         }
     }
