@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Domain.dll": "sha256-qMvlUAPhBHBaTdZi3roqdOAdkyZxfCYg1GCC4YCT3pE=",
-      "eWallet.dll": "sha256-\/BuppvXY3lqvWzE5tQouquro0LTodpeRYZV161urqKk=",
+      "Domain.dll": "sha256-PenJ1NVwQhepr9KmhklAhgIwkTQ81+cd8GRQo2ppK3I=",
+      "eWallet.dll": "sha256-EoD\/IkrcH3i+YwKpES3fX+H+JyrcTudGw3CD2szFp\/s=",
       "Microsoft.AspNetCore.Components.dll": "sha256-uiWTqVW02TXnjNBH2XDW8tq6o8OsVidtM8e9KmDl758=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-uhmCcUlD\/4xilqaDXiICFooz2Rq9j4bkFcqoaL3Itcg=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-EcjjYqrcVexmzCJqyR2M0WDsL69OA7F\/52VmdUYWxMk=",
@@ -31,7 +31,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-L3GOiL\/yHmT+yt+qhweH8zwXJyKUkpC8pgVMn2ch\/+I=",
       "Microsoft.Win32.Primitives.dll": "sha256-LDw3EcDeuGwoTRpaSn8atnFg4n9OqWJPQPjHU45TPnw=",
       "MudBlazor.dll": "sha256-8vzpLSYxvV6CJBl59P76gWfQhySnUnMzkZGJWjEYNO4=",
-      "Repository.dll": "sha256-qkioXZ9r\/5jfQodcCSHKkjWK6LxFDiF1pVUhNokcHAo=",
+      "Repository.dll": "sha256-GIme8zRlh0IqlmVsKZdBLKncHWdzkvV4\/8LIP86SWjE=",
       "System.Collections.Concurrent.dll": "sha256-8rGEkpKkI9o7lXn3Ecg7h1RTxp5NA1gEQQAvlzVGgzE=",
       "System.Collections.dll": "sha256-d5vHuzcL+z+PYa9YaNfwwptdMiK87YJBGU0XshZUIOE=",
       "System.Collections.Immutable.dll": "sha256-J\/Vuxnqu8mRaSsMQu2oJU3tZs4XVNzA5mwx4mFGzL5k=",
@@ -70,12 +70,12 @@
     "runtime": {
       "dotnet.6.0.15.p8eeq9cgr0.js": "sha256-4b2gt5HJ\/BTuIFR1akM0Ui5sXC7lfpaO49\/ytCLh7Lk=",
       "dotnet.timezones.blat": "sha256-Kk7cP\/f+hcBvv5Gh+QJctH\/6vm3yehrEjWqys4FAads=",
-      "dotnet.wasm": "sha256-0kVnwAs9EF60kHRughGTUH9Onk+8GNTYTrzYfKJ+INo="
+      "dotnet.wasm": "sha256-QvPDv0i3NaYMIS7jmWchXnWCvdtM8bBlUckxou2fPck="
     },
     "runtimeAssets": {
       "dotnet.wasm": {
         "behavior": "dotnetwasm",
-        "hash": "sha256-0kVnwAs9EF60kHRughGTUH9Onk+8GNTYTrzYfKJ+INo="
+        "hash": "sha256-QvPDv0i3NaYMIS7jmWchXnWCvdtM8bBlUckxou2fPck="
       }
     },
     "satelliteResources": null
