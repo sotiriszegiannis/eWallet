@@ -1,0 +1,50 @@
+﻿@page "/addMoney"
+@using eWallet.Components
+<div>
+    <MudPaper Class="gap-10 d-flex flex-wrap" Elevation="0">
+        <MudPaper Class="d-flex justify-center" Elevation="0" Width="100%">
+            <MudRadioGroup @bind-SelectedOption="@MoneyTypeString">
+                <MudRadio Option="@(Domain.MoneyType.Income.ToString())" Color="Color.Primary">Income</MudRadio>
+                <MudRadio Option="@(Domain.MoneyType.Expense.ToString())" Color="Color.Secondary">Expense</MudRadio>
+            </MudRadioGroup>
+        </MudPaper>
+        <MudPaper Class="d-flex justify-center" Elevation="0" Width="100%">
+            <MudPaper Width="50%" Elevation="0">
+                <MudTextField Style="font-size:3em" @bind-Value="moneyModel.Amount" Label="amount" Variant="Variant.Outlined"></MudTextField>
+            </MudPaper>
+        </MudPaper>
+        <MudPaper Class="d-flex justify-center" Elevation="0" Width="100%">
+            <MudPaper Width="75%" Elevation="0">
+                <MudTextField @bind-Value="moneyModel.Description" Label="description" Variant="Variant.Outlined"></MudTextField>
+            </MudPaper>
+        </MudPaper>
+        <MudPaper Class="d-flex justify-center" Elevation="0" Width="100%">
+            <MudPaper Width="75%" Elevation="0" Outlined="true">
+                <Tags SelectedTags="moneyModel.Tags"></Tags>
+            </MudPaper>
+        </MudPaper>
+        <MudPaper Class="d-flex justify-center" Elevation="0" Width="100%">
+            <MudPaper Class="justify-center" Width="75%" Elevation="0" >
+                <MudButton Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.AddCircle" Color="Color.Primary" @onclick="Add" Size="Size.Large">
+                    </MudButton>
+            </MudPaper>
+        </MudPaper>        
+    </MudPaper>
+</div>
+
+@code {
+    public string MoneyTypeString
+    {
+        get
+        {
+            return this.moneyModel.MoneyType.ToString();
+        }
+        set
+        {
+            this.moneyModel.MoneyType = Enum.Parse<Domain.MoneyType>(value);
+        }
+    }
+}
+
+
+

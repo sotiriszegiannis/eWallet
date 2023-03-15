@@ -1,0 +1,22 @@
+﻿<MudChipSet AllClosable="true" OnClose="Closed">
+    @foreach (var tag in SelectedTags)
+    {
+        <MudChip Text="@tag"></MudChip>
+    }
+</MudChipSet>
+
+Add tags <MudIconButton Icon="@Icons.Material.Filled.Add" OnClick="Add"></MudIconButton>
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        if (SelectedTags == null)
+            SelectedTags = new List<string>();
+        await base.OnInitializedAsync();
+    }
+    [Parameter]
+    public List<string> SelectedTags { get; set; } = new List<string>();
+    int i = 1;
+    public void Add() => SelectedTags.Add("Value " + (i++));
+    public void Closed(MudChip chip) => SelectedTags.Remove(chip.Text);
+}
