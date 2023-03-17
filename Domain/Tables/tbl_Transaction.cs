@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Domain
 {
     [Table("Money")]
-    public class tbl_Money:ITable
+    public class tbl_Transaction:ITable
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -18,8 +18,8 @@ namespace Domain
         [TableColumnAttr]
         public List<tbl_Tag> Tags { get; set; }
         [TableColumnAttr]
-        public MoneyType MoneyType { get; set; }
+        public TransactionType Type { get; set; }
         [TableColumnAttr]
-        public DateTime TransactionDate { get; set; } = DateTime.UtcNow;
+        public DateTime Date { get; set; } = DateTime.UtcNow;
     }
 }

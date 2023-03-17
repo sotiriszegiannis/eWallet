@@ -1,11 +1,11 @@
-﻿@page "/addMoney"
+﻿@page "/addTransaction"
 @using eWallet.Components
 <div>
     <MudPaper Class="gap-10 d-flex flex-wrap" Elevation="0">
         <MudPaper Class="d-flex justify-center" Elevation="0" Width="100%">
             <MudRadioGroup @bind-SelectedOption="@MoneyTypeString">
-                <MudRadio Option="@(Domain.MoneyType.Income.ToString())" Color="Color.Primary">Income</MudRadio>
-                <MudRadio Option="@(Domain.MoneyType.Expense.ToString())" Color="Color.Secondary">Expense</MudRadio>
+                <MudRadio Option="@(Domain.TransactionType.Income.ToString())" Color="Color.Primary">Income</MudRadio>
+                <MudRadio Option="@(Domain.TransactionType.Expense.ToString())" Color="Color.Secondary">Expense</MudRadio>
             </MudRadioGroup>
         </MudPaper>
         <MudPaper Class="d-flex justify-center" Elevation="0" Width="100%">
@@ -37,11 +37,11 @@
     {
         get
         {
-            return this.moneyModel.MoneyType.ToString();
+            return this.moneyModel.TransactionType.ToString();
         }
         set
         {
-            this.moneyModel.MoneyType = Enum.Parse<Domain.MoneyType>(value);
+            this.moneyModel.TransactionType = Enum.Parse<Domain.TransactionType>(value);
         }
     }
 }

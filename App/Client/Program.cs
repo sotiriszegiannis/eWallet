@@ -20,7 +20,8 @@ namespace eWallet
             {
                 options.UseInMemoryDatabase("eWallet");
             });
-            builder.Services.AddScoped<MoneyRepository>();
+            builder.Services.AddSingleton<DailyTransactionRegisterService>();
+            builder.Services.AddSingleton<TransactionRepository>();
             await builder.Build().RunAsync();
         }
     }

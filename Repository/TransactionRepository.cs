@@ -6,17 +6,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Repository
 {        
-    public class MoneyRepository : BaseRepository<tbl_Money>
+    public class TransactionRepository : BaseRepository<tbl_Transaction>
     {
-        public MoneyRepository(IDbContextFactory<AppDbContext> dbContextFactory) : base(dbContextFactory){}
-        public async Task<int> Add(MoneyDTO money)
+        public TransactionRepository(IDbContextFactory<AppDbContext> dbContextFactory) : base(dbContextFactory){}
+        public async Task<int> Add(TransactionDTO transaction)
         {
             List<tbl_Tag> tags = null;
-            if (money.Tags != null)
+            if (transaction.Tags != null)
             {
                 var tagsRepo = new TagsRepository(dbContextFactory);
-                tags = await tagsRepo.GetAllWithCriteria(p => money.Tags.Any(x => x == p.Name));
-                money.Tags.Except(tags.Select(p => p.Name)).ToList().ForEach(async p =>
+                tags = await tagsRepo.GetAllWithCriteria(p => transaction.Tags.Any(x => x == p.Name));
+                transaction.Tags.Except(tags.Select(p => p.Name)).ToList().ForEach(async p =>
                 {
                     var id = await tagsRepo.Save(new tbl_Tag()
                     {
@@ -29,13 +29,14 @@ namespace Repository
                     });
                 });
             }
-            return await Save(new tbl_Money()
+            return await Save(new tbl_Transaction()
             {
-                Amount = money.Amount,
-                Description = money.Description,
-                MoneyType = money.MoneyType,
+                Amount = transaction.Amount,
+                Description = transaction.Description,
+                Type = transaction.TransactionType,
                 Tags = tags
             });
         }
+        public async Task<TransactionDTO> GetAllForToday()
     }
 }

@@ -1,0 +1,41 @@
+﻿@inject DailyTransactionRegisterService DailyTransactionRegister
+@inject Repository.TransactionRepository TransactionRepository
+<div @onclick="ShowDailyTransactions" style="display:contents">
+     <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Inherit" Edge="Edge.Start" />
+        <MudText Typo="Typo.h6">@DailyTotal.Income €</MudText>
+        <MudIconButton Icon="@Icons.Material.Filled.Remove" Color="Color.Inherit" Edge="Edge.Start" />
+        <MudText Typo="Typo.h6">@DailyTotal.Expenses €</MudText>
+
+        <MudDrawer @bind-Open="@OpenDailyTransactionsDrawer" Anchor="Anchor.Bottom" Elevation="1" Variant="@DrawerVariant.Temporary">
+            <MudDrawerHeader>
+                <MudText Typo="Typo.h6">17/3/2023</MudText>
+            </MudDrawerHeader>
+            <MudNavMenu>
+                <MudNavLink Match="NavLinkMatch.All">Store</MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All">Library</MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All">Community</MudNavLink>
+            </MudNavMenu>
+        </MudDrawer>
+</div>
+
+@code
+{
+    DailyTransactionRegisterService.Total DailyTotal = new DailyTransactionRegisterService.Total();
+    private bool OpenDailyTransactionsDrawer = false;
+    protected override async Task OnInitializedAsync()
+    {
+
+        DailyTransactionRegister.OnNewTransaction = (DailyTransactionRegisterService.Total total) =>
+        {
+            DailyTotal.Income = total.Income;
+            DailyTotal.Expenses = total.Expenses;
+            StateHasChanged();
+        };
+        await base.OnInitializedAsync();
+    }
+    private async Task ShowDailyTransactions()
+    {
+        OpenDailyTransactionsDrawer = true;
+        await TransactionRepository.
+    }
+}

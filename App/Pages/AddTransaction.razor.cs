@@ -5,26 +5,31 @@ using MudBlazor;
 
 namespace eWallet.Pages
 {
-    public partial class AddMoney
+    public partial class AddTransaction
     {
-        [Inject] private MoneyRepository moneyRepository { get; set; } = default;
+        [Inject] private TransactionRepository TransactionRepository { get; set; } = default;
         [Inject] ISnackbar Snackbar { get; set; } = default;
-        public MoneyModel moneyModel { get; set; }=new MoneyModel();
+        [Inject] DailyTransactionRegisterService DailyTransactionRegister { get; set; } = default;
+        public TransactionModel moneyModel { get; set; }=new TransactionModel();
         protected override async Task OnInitializedAsync()
         {           
             await base.OnInitializedAsync();
         }
         private async Task Add()
         {
-            var recId=await moneyRepository.Add(new MoneyDTO()
+            var recId=await TransactionRepository.Add(new TransactionDTO()
             {
                 Amount = moneyModel.Amount,
                 Description = moneyModel.Description,
-                MoneyType = moneyModel.MoneyType,
+                TransactionType = moneyModel.TransactionType,
                 Tags=moneyModel.Tags
             });
+
             if (recId > 0)
+            {
                 Snackbar.Add("Saved!", Severity.Success);
+                await DailyTransactionRegister.NewTransaction(moneyModel);
+            }
         }
     }
 }
